@@ -18,3 +18,9 @@ function getPlot(id) {
 
         // get only top 10 otu ids for the plot
         var idValues = (samples.otu_ids.slice(0, 10)).reverse();
+
+
+        // get the otu id's to the desired form for the plot
+        var idOtu = idValues.map(d => "OTU " + d)
+
+        console.log(`OTU IDS: ${idOtu}`)

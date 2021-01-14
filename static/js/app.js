@@ -12,3 +12,9 @@ function getPlot(id) {
         var samples = data.samples.filter(s => s.id.toString() === id)[0];
 
         console.log(samples);
+
+        // get only top 10 sample values to plot and reverse for the plotly
+        var sampleValues = samples.sample_values.slice(0, 10).reverse();
+
+        // get only top 10 otu ids for the plot
+        var idValues = (samples.otu_ids.slice(0, 10)).reverse();

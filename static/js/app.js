@@ -24,3 +24,24 @@ function getPlot(id) {
         var idOtu = idValues.map(d => "OTU " + d)
 
         console.log(`OTU IDS: ${idOtu}`)
+
+
+        // get the top 10 labels for the plot
+        var labels = samples.otu_labels.slice(0, 10);
+
+        console.log(`Sample Values: ${sampleValues}`)
+        console.log(`Id Values: ${idValues}`)
+
+
+
+        // create trace variable for the plot
+        var trace = {
+            x: sampleValues,
+            y: idOtu,
+            text: labels,
+            type:"bar",
+            orientation: "h",
+        };
+
+        // create data variable
+        var data = [trace];

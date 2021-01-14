@@ -83,8 +83,7 @@ def sample_metadata(sample):
 
 
     @app.route("/samples/<sample>")
-    def samples(sample):
-    """Return `otu_ids`, `otu_labels`,and `sample_values`."""
+    def samples(sample): """Return `otu_ids`, `otu_labels`,and `sample_values`."""
     stmt = db.session.query(Samples).statement
     df = pd.read_sql_query(stmt, db.session.bind)
 

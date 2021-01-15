@@ -2,11 +2,11 @@
 function getPlot(id) {
     
     // get the data from the json file
-    d3.json("data/samples.json").then((data)=> {
+    d3.json("samples.json").then((data)=> {
         console.log(data)
 
         var wfreq = data.metadata.map(d => d.wfreq)
-        console.log(`Washing Freq: ${wfreq}`)
+        console.log('Washing Freq: ${wfreq}')
 
         // filter sample values by id 
         var samples = data.samples.filter(s => s.id.toString() === id)[0];
@@ -22,13 +22,13 @@ function getPlot(id) {
         // get the otu id's to the desired form for the plot
         var idOtu = idValues.map(d => "OTU " + d)
 
-        console.log(`OTU IDS: ${idOtu}`)
+        console.log('OTU IDS: ${idOtu}')
 
         // get the top 10 labels for the plot
         var labels = samples.otu_labels.slice(0, 10);
 
-        console.log(`Sample Values: ${sampleValues}`)
-        console.log(`Id Values: ${idValues}`)
+        console.log('Sample Values: ${sampleValues}')
+        console.log('Id Values: ${idValues}')
 
         
         // create trace variable for the plot
@@ -106,7 +106,7 @@ function getPlot(id) {
 // create the function to get the necessary data
 function getInfo(id) {
     // read the json file to get data
-    d3.json("data/samples.json").then((data)=> {
+    d3.json("samples.json").then((data)=> {
         
         // get the metadata info for the demographic panel
         var metadata = data.metadata;
@@ -141,7 +141,7 @@ function init() {
     var dropdown = d3.select("#selDataset");
 
     // read the data 
-    d3.json("data/samples.json").then((data)=> {
+    d3.json("samples.json").then((data)=> {
         console.log(data)
 
         // get the id data to the dropdwown menu
